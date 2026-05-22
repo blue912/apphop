@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="vi"><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download App HỌP LÀO CAI</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            padding-top: 100px;
+        }
+
+        .store-buttons img {
+            height: 60px;
+            margin: 10px;
+            transition: transform 0.2s;
+        }
+
+        .store-buttons img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body __processed_f0999138-91a0-4019-80cb-854b80e4590a__="true">
+
+<div class="container">
+    <h1>Đang chuyển hướng...</h1>
+    <p>Nếu không tự chuyển, chọn bên dưới:</p>
+
+    <div class="store-buttons">
+        <a id="iosLink" target="_blank" href="https://apps.apple.com/us/app/h%E1%BB%8Dp-l%C3%A0o-cai/id6462593498">
+            <img src="./Download App_files/download-on-the-app-store.svg">
+        </a>
+
+        <a id="androidLink" target="_blank" href="https://play.google.com/store/apps/details?id=vn.vnpt.vnptna.ecabinet.yenbai&hl=vi">
+            <img src="./Download App_files/Google_Play_Store_badge_EN.svg">
+        </a>
+    </div>
+</div>
+
+<script>
+    // ===== CONFIG (chỉ sửa ở đây) =====
+    const CONFIG = {
+        android: "https://play.google.com/store/apps/details?id=vn.vnpt.vnptna.ecabinet.yenbai&hl=vi",
+        ios: "https://apps.apple.com/us/app/h%E1%BB%8Dp-l%C3%A0o-cai/id6462593498"
+    };
+
+    // Gán link cho button
+    document.getElementById("androidLink").href = CONFIG.android;
+    document.getElementById("iosLink").href = CONFIG.ios;
+
+    function detectAndRedirect() {
+        const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+        if (/android/i.test(ua)) {
+            window.location.href = CONFIG.android;
+        } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+            window.location.href = CONFIG.ios;
+        }
+    }
+
+    // Delay chút cho user thấy UI
+    setTimeout(detectAndRedirect, 500);
+</script>
+
+
+
+</body></html>
